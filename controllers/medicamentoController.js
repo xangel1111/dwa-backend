@@ -23,13 +23,13 @@ class MedicamentoController {
       
       if (search) {
         whereClause.descripcion = {
-          [Op.iLike]: `%${search}%`
+          [Op.like]: `%${search}%`
         };
       }
       
       if (marca) {
         whereClause.marca = {
-          [Op.iLike]: `%${marca}%`
+          [Op.like]: `%${marca}%`
         };
       }
       
@@ -213,8 +213,9 @@ class MedicamentoController {
         }
       }
 
-      await medicamento.update(updateData);
+      console.log('Datos recibidos:', req.body);
 
+      await medicamento.update(updateData);
       // Cargar el medicamento actualizado con sus relaciones
       const medicamentoActualizado = await Medicamento.findByPk(id, {
         include: [{

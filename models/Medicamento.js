@@ -128,7 +128,7 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: 0,
       validate: {
         min: {
-          args: 0,
+          args: ['0'],
           msg: 'El stock no puede ser negativo'
         },
         isInt: {
@@ -141,7 +141,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       validate: {
         min: {
-          args: 0,
+          args: ['0'],
           msg: 'El precio unitario no puede ser negativo'
         },
         isDecimal: {
@@ -154,7 +154,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       validate: {
         min: {
-          args: 0,
+          args: ['0'],
           msg: 'El precio de presentación no puede ser negativo'
         },
         isDecimal: {

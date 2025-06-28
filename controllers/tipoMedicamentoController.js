@@ -10,7 +10,7 @@ class TipoMedicamentoController {
       
       const whereClause = search ? {
         description: {
-          [Op.iLike]: `%${search}%`
+          [Op.like]: `%${search}%`
         }
       } : {};
 
@@ -103,7 +103,7 @@ class TipoMedicamentoController {
       const existingTipo = await TipoMedicamento.findOne({
         where: {
           description: {
-            [Op.iLike]: description.trim()
+            [Op.like]: description.trim()
           }
         }
       });
@@ -166,7 +166,7 @@ class TipoMedicamentoController {
         const existingTipo = await TipoMedicamento.findOne({
           where: {
             description: {
-              [Op.iLike]: description.trim()
+              [Op.like]: description.trim()
             },
             id: {
               [Op.ne]: id
